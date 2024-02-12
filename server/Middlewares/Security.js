@@ -5,6 +5,5 @@ exports.encryptPassword = async ({ password }) => {
 };
 
 exports.decryptPassword = async ({ password, hashedPassword }) => {
-  const syncedPassword = await bcrypt.compare(password, hashedPassword);
-  return syncedPassword;
+  return await bcrypt.compare(password, hashedPassword);
 };

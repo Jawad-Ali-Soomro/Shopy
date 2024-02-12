@@ -26,6 +26,16 @@ const userSchema = new mongoose.Schema({
     default: "none",
     type: String,
   },
+  address: [
+    {
+      shipping_address: {
+        type: String,
+      },
+      billing_address: {
+        type: String,
+      },
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);
