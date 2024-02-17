@@ -5,7 +5,6 @@ import {
   BiCategory,
   BiHeart,
   BiHome,
-  BiSearch,
   BiShoppingBag,
   BiUser,
 } from "react-icons/bi";
@@ -14,6 +13,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const cart = useSelector((state) => state.cart);
+  const image = useSelector((userState) => userState.user.user.user);
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(window.location.pathname);
   return (
@@ -49,7 +49,11 @@ const Header = () => {
             onClick={() => navigate("/account")}
             data-tool="Account"
           >
-            <BiUser />
+            {image.avatar !== undefined ? (
+              <img src={image.avatar} alt="" className="avatar" />
+            ) : (
+              <BiUser />
+            )}
           </li>
         </ul>
       </div>
@@ -73,7 +77,6 @@ const Header = () => {
           >
             <BiCart />
           </p>
-          <BiSearch className="icon" />
         </ul>
       </div>
     </div>

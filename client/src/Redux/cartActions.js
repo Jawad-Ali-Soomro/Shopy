@@ -14,3 +14,14 @@ export const removeFromCart = ({ itemId }) => ({
   type: "REMOVE_FROM_CART",
   item: itemId,
 });
+
+export const addUserDetails = ({ username, email, phone, avatar, id }) => ({
+  type: "ADD_USER_DETAILS",
+  user: {
+    username,
+    email,
+    phone,
+    avatar,
+    id,
+  },
+});
