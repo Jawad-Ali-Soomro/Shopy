@@ -1,0 +1,65 @@
+.shop {
+  background: rgb(247, 247, 247);
+  width: 100%;
+  height: 100vh;
+  .search-bar {
+    width: 300px;
+    height: 50px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    position: absolute;
+    top: 20px;
+    border-radius: 25px;
+    overflow: hidden;
+    right: 20px;
+    input {
+      width: 230px;
+      padding-left: 20px;
+      height: 50px;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      letter-spacing: 2px;
+    }
+    .search-icon {
+      font-size: 1.3rem;
+      padding: 15px 15px;
+      border-radius: 50%;
+      color: #111;
+      cursor: pointer;
+    }
+  }
+  .filter {
+    width: 600px;
+    position: absolute;
+    top: 20px;
+    right: 400px;
+    min-height: 50px;
+    ul {
+      gap: 50px;
+      li {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+        line-height: 50px;
+        letter-spacing: 2px;
+      }
+      li::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #111;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.3s;
+        max-width: 0;
+      }
+      li:hover::after {
+        max-width: 100%;
+      }
+    }
+  }
+}

@@ -7,40 +7,46 @@ import {
   BiHome,
   BiSearch,
   BiShoppingBag,
-  BiSupport,
   BiUser,
 } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [activeTab, setActiveTab] = useState("/");
+  const cart = useSelector((state) => state.cart);
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState(window.location.pathname);
   return (
     <div className="side-bar flex col">
+      <div className="logo">
+        <img src="./logo.png" alt="" onClick={() => navigate("/")} />
+      </div>
       <div className="navs flex start">
         <ul className="flex col">
           <li
             className={activeTab == "/" ? "active" : ""}
-            onClick={() => setActiveTab("/")}
+            onClick={() => navigate("/")}
             data-tool="Home"
           >
             <BiHome />
           </li>
           <li
             className={activeTab == "/shop" ? "active" : ""}
-            onClick={() => setActiveTab("/shop")}
+            onClick={() => navigate("/shop")}
             data-tool="Shop"
           >
             <BiShoppingBag />
           </li>
           <li
             className={activeTab == "/category" ? "active" : ""}
-            onClick={() => setActiveTab("/category")}
+            onClick={() => navigate("/category")}
             data-tool="Categories"
           >
             <BiCategory />
           </li>
           <li
             className={activeTab == "/account" ? "active" : ""}
-            onClick={() => setActiveTab("/account")}
+            onClick={() => navigate("/account")}
             data-tool="Account"
           >
             <BiUser />
@@ -49,10 +55,25 @@ const Header = () => {
       </div>
       <div className="icons">
         <ul className="flex col start">
-          <BiHeart className="icon" />
-          <BiCart className="icon" />
+          <p className="icon flex" data-cart="0">
+            <BiHeart />
+          </p>
+          <p
+            className="flex icon"
+            data-cart={cart.items.length}
+            style={{
+              background: `${
+                window.location.pathname == "/cart" ? "orange" : ""
+              }`,
+              color: `${
+                window.location.pathname == "/cart" ? "white" : "black"
+              }`,
+            }}
+            onClick={() => navigate("/cart")}
+          >
+            <BiCart />
+          </p>
           <BiSearch className="icon" />
-          <BiSupport className="icon" />
         </ul>
       </div>
     </div>
