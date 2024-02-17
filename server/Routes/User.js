@@ -8,8 +8,8 @@ const {
 } = require("../Services/User");
 const userRoute = express.Router();
 userRoute.post("/create/account", createAccount);
-userRoute.get("/login/account", loginUser);
-userRoute.get("/get/profile", getProfile);
+userRoute.post("/login/account", loginUser);
+userRoute.post("/get/profile", getProfile);
 userRoute.patch("/update/password", updatePassword);
 userRoute.patch("/update/profile", updateProfile);
 module.exports = userRoute;

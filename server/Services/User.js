@@ -2,14 +2,15 @@ const CatchAsyncError = require("../Middlewares/Exception_Handling");
 const { encryptPassword, decryptPassword } = require("../Middlewares/Security");
 const { createToken, compareToken } = require("../Middlewares/Token");
 const User = require("../Models/User");
+const bcrypt = require("bcryptjs");
 
 exports.createAccount = CatchAsyncError(async (req, res) => {
   const { email, password } = req.body;
   const findUser = await User.findOne({ email });
+  const hashedPassword = await encryptPassword({ password });
   if (findUser) {
     return res.json({ message: "User already exists" });
   } else {
-    const hashedPassword = await encryptPassword({ password });
     const createdAccount = await User.create({
       ...req.body,
       password: hashedPassword,
@@ -35,6 +36,7 @@ exports.loginUser = CatchAsyncError(async (req, res) => {
       const token = createToken({ findUser });
       return res.cookie("userToken", token).json({
         message: "User logged in successfully",
+        userToken: token,
       });
     } else {
       return res.json({ message: "Invalid password" });
@@ -43,7 +45,7 @@ exports.loginUser = CatchAsyncError(async (req, res) => {
 });
 
 exports.getProfile = CatchAsyncError(async (req, res) => {
-  const { userToken } = await req.cookies;
+  const { userToken } = req.body;
   const userData = await compareToken({ token: userToken });
   if (!userToken) {
     return res.json({

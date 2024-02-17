@@ -6,8 +6,7 @@ exports.createToken = ({ findUser }) => {
 
 exports.compareToken = async ({ token }) => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    return decoded;
+    return (decoded = jwt.verify(token, process.env.JWT_SECRET));
   } catch (error) {
     return false;
   }
