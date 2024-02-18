@@ -1,62 +1,37 @@
-.popup-message {
-  width: 600px;
-  height: 300px;
-  position: fixed;
-  top: calc(50% - 150px);
-  left: calc(50% - 300px);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba($color: #000000, $alpha: 0.1);
-  border-radius: 10px;
+.profile {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   gap: 10px;
-  color: #111;
-  transition: 0.3s;
+  cursor: pointer;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
   p {
-    font-size: 2rem;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  .btns {
-    gap: 20px;
-    button {
-      width: 200px;
-      height: 50px;
-      border: none;
-      font-size: 1.2rem;
-      margin-top: 20px;
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-      letter-spacing: 2px;
-    }
-    button:first-child {
-      background: red;
-    }
-    button:last-child {
-      background: royalblue;
+    font-size: 1.5rem;
+    span {
+      font-size: 1rem;
     }
   }
 }
-
 .user-details {
   width: 100%;
   height: 100vh;
   background: rgb(247, 247, 247);
-  gap: 20px;
   position: relative;
   ul {
     gap: 20px;
     li {
-      gap: 50px;
+      gap: 20px;
       list-style: none;
       cursor: pointer;
       font-size: 1.5rem;
       font-weight: 900;
       color: #111;
-      letter-spacing: 2px;
-      letter-spacing: 2px;
       .icon {
-        padding: 20px 20px;
+        padding: 10px 10px;
         border: 1px solid rgba($color: #000000, $alpha: 0.1);
         border-radius: 50%;
       }

@@ -7,6 +7,7 @@ import Register from "./Pages/Register";
 import Account from "./Pages/Account";
 import Cart from "./Pages/Cart";
 import { Toaster } from "react-hot-toast";
+import Product from "./Pages/Product";
 
 function App() {
   function checkCookie(name) {
@@ -34,6 +35,7 @@ function App() {
             element={userToken ? <Account /> : <Login />}
           ></Route>
           <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/product/:id" element={<Product />}></Route>
         </Routes>
       </BrowserRouter>
     </>

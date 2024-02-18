@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const cart = useSelector((state) => state.cart);
-  const image = useSelector((userState) => userState.user.user.user);
+  const fvt = useSelector((state) => state.fvtItems.fvtItems.length);
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(window.location.pathname);
   return (
@@ -49,17 +49,13 @@ const Header = () => {
             onClick={() => navigate("/account")}
             data-tool="Account"
           >
-            {image.avatar !== undefined ? (
-              <img src={image.avatar} alt="" className="avatar" />
-            ) : (
-              <BiUser />
-            )}
+            <BiUser />
           </li>
         </ul>
       </div>
       <div className="icons">
         <ul className="flex col start">
-          <p className="icon flex" data-cart="0">
+          <p className="icon flex" data-cart={fvt}>
             <BiHeart />
           </p>
           <p
@@ -67,7 +63,7 @@ const Header = () => {
             data-cart={cart.items.length}
             style={{
               background: `${
-                window.location.pathname == "/cart" ? "orange" : ""
+                window.location.pathname == "/cart" ? "#111" : ""
               }`,
               color: `${
                 window.location.pathname == "/cart" ? "white" : "black"

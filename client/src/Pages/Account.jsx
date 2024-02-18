@@ -3,24 +3,13 @@ import React, { useState } from "react";
 import { baseUrl } from "../baseUrl";
 import Header from "../Components/Header";
 import "../Styles/Account.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUserDetails } from "../Redux/cartActions";
 import { BiLogOut, BiMoney, BiSolidLocationPlus, BiUser } from "react-icons/bi";
-const Popup = (condition) => {
-  return (
-    <div className="popup-message flex col">
-      <p>are you sure!</p>
-      <h1>You want to logout</h1>
-      <div className="btns flex">
-        <button onClick={() => window.location.reload()}>No!</button>
-        <button>yes sure!</button>
-      </div>
-    </div>
-  );
-};
+import toast from "react-hot-toast";
 
 const Account = () => {
-  const [showpopup, setshowpopup] = useState(false);
+  const account = useSelector((state) => state.user.user.user);
   const dispatch = useDispatch();
   function checkCookie(name) {
     var cookieArr = document.cookie.split(";");
@@ -53,6 +42,13 @@ const Account = () => {
     <div>
       <Header />
       <div className="user-details flex col">
+        <div className="profile flex">
+          <p>
+            <span>welcome mr &nbsp;</span>
+            {account.username}
+          </p>
+          <img src={account.avatar} alt="" />
+        </div>
         <ul className="flex col">
           <li className="flex">
             <BiUser className="icon" />
@@ -70,7 +66,6 @@ const Account = () => {
         <div className="logout-btn flex" onClick={() => setshowpopup(true)}>
           <BiLogOut className="icon" />
         </div>
-        {showpopup == true ? <Popup /> : this}
       </div>
     </div>
   );
