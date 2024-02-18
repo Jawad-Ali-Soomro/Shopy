@@ -5,8 +5,7 @@ import Header from "../Components/Header";
 import "../Styles/Account.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { addUserDetails } from "../Redux/cartActions";
-import { BiLogOut, BiMoney, BiSolidLocationPlus, BiUser } from "react-icons/bi";
-import toast from "react-hot-toast";
+import { BiLogOut } from "react-icons/bi";
 
 const Account = () => {
   const account = useSelector((state) => state.user.user.user);
@@ -37,7 +36,7 @@ const Account = () => {
     );
   };
   getUserInfo();
-
+  // console.log(account);
   return (
     <div>
       <Header />
@@ -49,20 +48,11 @@ const Account = () => {
           </p>
           <img src={account.avatar} alt="" />
         </div>
-        <ul className="flex col">
-          <li className="flex">
-            <BiUser className="icon" />
-            <p>Account details</p>
-          </li>
-          <li className="flex">
-            <BiSolidLocationPlus className="icon" />
-            <p>Address details</p>
-          </li>
-          <li className="flex">
-            <BiMoney className="icon" />
-            <p>Payment details</p>
-          </li>
-        </ul>
+        <img className="main-img" src={account.avatar} alt="" />
+        <h1>{account.username}</h1>
+        <h1>{account.email}</h1>
+        <h1>{account.phone}</h1>
+        <button>update</button>
         <div className="logout-btn flex" onClick={() => setshowpopup(true)}>
           <BiLogOut className="icon" />
         </div>

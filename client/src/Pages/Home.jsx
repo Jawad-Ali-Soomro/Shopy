@@ -87,7 +87,7 @@ const Home = () => {
                               image: item.image,
                               price: item.price,
                             })
-                          )
+                          ) + toast.success("Item added to favourites!")
                     }
                   />
                   <BiCartAdd
@@ -103,7 +103,7 @@ const Home = () => {
                               image: item.image,
                               price: item.price,
                             })
-                          )
+                          ) + toast.success("Item Added to cart!")
                     }
                   />
                   <BiShow

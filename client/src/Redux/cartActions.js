@@ -38,7 +38,7 @@ export const addTofvt = ({ name, description, image, price, id }) => ({
 });
 
 export const removeFromFvt = ({ itemId }) => ({
-  type: "REMOVE_FROM_CART",
+  type: "REMOVE_FROM_FVT",
   item: itemId,
 });
 

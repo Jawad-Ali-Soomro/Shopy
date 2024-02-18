@@ -16,7 +16,6 @@
   }
   .navs {
     align-items: start;
-    text-transform: uppercase;
     ul {
       gap: 10px;
       li {
@@ -53,7 +52,8 @@
         background: #111;
         left: 110%;
         top: 10px;
-        letter-spacing: 2px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -63,7 +63,7 @@
         max-width: 0;
         overflow: hidden;
         transition: 0.3s;
-        font-weight: 900;
+        font-weight: 600;
       }
       li:hover::after,
       .active::after {

@@ -8,6 +8,7 @@ import Account from "./Pages/Account";
 import Cart from "./Pages/Cart";
 import { Toaster } from "react-hot-toast";
 import Product from "./Pages/Product";
+import Favourite from "./Pages/Favourite";
 
 function App() {
   function checkCookie(name) {
@@ -36,6 +37,7 @@ function App() {
           ></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/product/:id" element={<Product />}></Route>
+          <Route path="/favourites" element={<Favourite />}></Route>
         </Routes>
       </BrowserRouter>
     </>

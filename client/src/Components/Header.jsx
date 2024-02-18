@@ -55,7 +55,19 @@ const Header = () => {
       </div>
       <div className="icons">
         <ul className="flex col start">
-          <p className="icon flex" data-cart={fvt}>
+          <p
+            className="icon flex"
+            data-cart={fvt}
+            style={{
+              background: `${
+                window.location.pathname == "/favourites" ? "#111" : ""
+              }`,
+              color: `${
+                window.location.pathname == "/favourites" ? "white" : "black"
+              }`,
+            }}
+            onClick={() => navigate("/favourites")}
+          >
             <BiHeart />
           </p>
           <p

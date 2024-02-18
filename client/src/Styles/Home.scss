@@ -81,10 +81,12 @@
 
 .services {
   width: calc(100% - 150px);
-  height: 30vh;
+  padding-top: 10vh;
   background: rgb(247, 247, 247);
   gap: 20px;
   padding-left: 150px;
+  flex-wrap: wrap;
+  padding-bottom: 10vh;
   .card {
     width: 300px;
     height: 170px;
@@ -100,6 +102,7 @@
       text-transform: uppercase;
       max-width: 60%;
       color: #111;
+      font-size: 1rem;
     }
     .icon {
       font-size: 2rem;

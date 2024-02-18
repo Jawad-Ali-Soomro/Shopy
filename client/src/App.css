@@ -1,8 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: bebas neue;
+  font-family: jost;
   font-weight: 300;
+  text-transform: capitalize;
 }
 
 .flex {
