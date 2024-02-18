@@ -23,3 +23,18 @@ exports.createProduct = CatchAsyncError(async (req, res) => {
     }
   }
 });
+
+exports.getAllProducts = CatchAsyncError(async (req, res) => {
+  const foundProducts = await Product.find({});
+  return res.json({
+    foundProducts,
+  });
+});
+
+exports.getSingleProduct = CatchAsyncError(async (req, res) => {
+  const { id } = req.params;
+  const foundProduct = await Product.findById(id);
+  return res.json({
+    foundProduct,
+  });
+});
