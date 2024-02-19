@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 import "../Styles/Product.scss";
@@ -20,6 +20,7 @@ const Product = () => {
       .get(`${baseUrl}/get/product/${id}`)
       .then((res) => setData(res.data.foundProduct));
   };
+
   getData();
 
   return (

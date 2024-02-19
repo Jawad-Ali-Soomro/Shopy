@@ -6,7 +6,8 @@
     width: 300px;
     height: 50px;
     border: 1px solid rgba($color: #000000, $alpha: 0.1);
-    position: absolute;
+    position: fixed;
+    z-index: 1;
     top: 20px;
     border-radius: 25px;
     overflow: hidden;
@@ -19,6 +20,7 @@
       border: none;
       outline: none;
       font-size: 1rem;
+      text-transform: capitalize;
     }
     .search-icon {
       font-size: 1.3rem;
@@ -30,7 +32,8 @@
   }
   .filter {
     width: 600px;
-    position: absolute;
+    position: fixed;
+    z-index: 1;
     top: 20px;
     right: 400px;
     min-height: 50px;
@@ -44,7 +47,8 @@
         position: relative;
         line-height: 50px;
       }
-      li::after {
+      li::after,
+      .active::after {
         content: "";
         width: 100%;
         height: 2px;
@@ -55,9 +59,16 @@
         transition: 0.3s;
         max-width: 0;
       }
-      li:hover::after {
+      li:hover::after,
+      .active::after {
         max-width: 100%;
       }
     }
+  }
+  .new-arrivals {
+    width: 100%;
+    height: 70vh;
+    margin-top: 10vh;
+    overflow: scroll;
   }
 }

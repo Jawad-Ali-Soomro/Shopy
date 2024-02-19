@@ -38,13 +38,6 @@ const Header = () => {
             <BiShoppingBag />
           </li>
           <li
-            className={activeTab == "/category" ? "active" : ""}
-            onClick={() => navigate("/category")}
-            data-tool="Categories"
-          >
-            <BiCategory />
-          </li>
-          <li
             className={activeTab == "/account" ? "active" : ""}
             onClick={() => navigate("/account")}
             data-tool="Account"

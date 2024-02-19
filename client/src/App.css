@@ -3,7 +3,7 @@
   padding: 0;
   font-family: jost;
   font-weight: 300;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .flex {

@@ -33,7 +33,15 @@ exports.getAllProducts = CatchAsyncError(async (req, res) => {
 
 exports.getSingleProduct = CatchAsyncError(async (req, res) => {
   const { id } = req.params;
-  const foundProduct = await Product.findById(id);
+  const foundProduct = await Product.findOne({ _id: id });
+  return res.json({
+    foundProduct,
+  });
+});
+
+exports.getProductByCategory = CatchAsyncError(async (req, res) => {
+  const { mainCat } = req.body;
+  const foundProduct = await Product.find({ productCategory: mainCat });
   return res.json({
     foundProduct,
   });
